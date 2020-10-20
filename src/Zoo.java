@@ -1,49 +1,60 @@
 public class Zoo {
 
-    public static class Kletka{
+    public static class Kletka {
+
+        public static class Animal {
+            private String typeAnimal;
+            private String color;
+
+            public Animal(String typeAnimal, String color) {
+                
+            }
+
+            public String getTypeAnimal() {
+                return typeAnimal;
+            }
+
+            public String getColor() {
+                return color;
+            }
+
+            public String setColor(String color) {
+                this.color = color;
+                return color;
+            }
+
+            public void Golos() {
+                if (typeAnimal.equals("Лев"))
+                    System.out.println(typeAnimal + " рычит!");
+                else if (typeAnimal.equals("Кенгуру"))
+                    System.out.println(typeAnimal + " ричит что-то на австралийском");
+            }
 
 
+            public void Vstal() {
+                if (typeAnimal.equals("Кенгуру")) {
+                    System.out.println(typeAnimal + " встал на хвост!");
+                } else {
+                    System.out.println(typeAnimal + " встал на лапы!");
+                }
+            }
 
-        private String typeAnimal;
-        private String color;
+            public static class Lion extends Animal {
 
-        public Kletka(String typeAnimal, String color){
-            this.typeAnimal = typeAnimal;
-            this.color = color;
-        }
+                public Lion(String typeAnimal, String color) {
+                    super(typeAnimal, color);
+                }
+            }
 
-        public String getTypeAnimal(){
-            return typeAnimal;
-        }
-
-        public String getColor(){
-            return color;
-        }
-
-        public void Golos(){
-            System.out.println(typeAnimal + " подает голос!");
-        }
-
-        public void Vstal() {
-            if (typeAnimal.equals("Кенгуру")) {
-                System.out.println(typeAnimal + " встал на хвост!");
-            } else {
-                System.out.println(typeAnimal + " встал на лапы!");
+            public class Kango extends Animal {
+                public Kango(String typeAnimal, String color) {
+                    super(typeAnimal, color);
+                }
             }
         }
-
     }
-
     public static void main(String[] args) {
-        Kletka lev = new Kletka("Лев", "желтый");
-        lev.Golos();
-        lev.Vstal();
-
-        Kletka kango = new Kletka("Кенгуру", "желтый");
-        kango.Golos();
-        kango.Vstal();
-
-        Kletka tigr = new Kletka("Тигр", "оранжевый с черным");
-        Kletka slon = new Kletka("Слон", "серый");
+        Kletka.Animal.Lion lev = new Kletka.Animal.Lion("Лев", "желтый");
+        System.out.println(lev.getTypeAnimal());
     }
 }
